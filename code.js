@@ -10,12 +10,41 @@
     For example:
         "eat" becomes "eat-yay"
         "omelet" becomes "omelet-yay" 
+
+        if word starts with aeiou add a - and yay
+        need to tell it to look for the first letter
 */
 function encodeVowelWord(word) {
-  return ""; // replace this!
+  let vowels = ['a', 'e', 'i', 'o', 'u']
+
+  for (let index = 0; index < vowels.length; index++) {
+    let vowel = vowels[index]
+    if (word.startsWith(vowel)) {
+      word += '-yay'
+    }
+  }
+  console.log(word)
+  return word 
 }
 
+
 // Write your unit tests here
+let vowelTest1 = encodeVowelWord('eat')
+console.assert(vowelTest1 === 'eat-yay', {
+  test: 'encodVowelWord on eeat',
+  expected: 'beae-yay',
+  result: vowelTest1
+})
+
+
+let vowelTest2 = encodeVowelWord('omelet')
+console.assert(vowelTest2 === 'omelet-yay', {
+  test: 'encodVowelWord on omelet',
+  expected: 'omelet-yay',
+  result: vowelTest2
+})
+
+
 
 /*  --------------------------------------------------------
     encodeConsonantWord()
@@ -27,6 +56,9 @@ function encodeVowelWord(word) {
     For example:
         "latin" becomes "atin-lay"
         "cheers" becomes "eers-chay"
+
+        need to call other function4
+        need to slice/splice
 */
 function encodeConsonantWord(word) {
   return ""; // replace this!
