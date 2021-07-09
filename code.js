@@ -13,9 +13,13 @@
 
         if word starts with aeiou add a - and yay
         need to tell it to look for the first letter
+
 */
+
+let vowels = ['a', 'e', 'i', 'o', 'u']
+
 function encodeVowelWord(word) {
-  let vowels = ['a', 'e', 'i', 'o', 'u']
+ 
 
   for (let index = 0; index < vowels.length; index++) {
     let vowel = vowels[index]
@@ -57,14 +61,33 @@ console.assert(vowelTest2 === 'omelet-yay', {
         "latin" becomes "atin-lay"
         "cheers" becomes "eers-chay"
 
-        need to call other function4
-        need to slice/splice
+        
+        need to slice/splice when i hit a vowel
+
 */
 function encodeConsonantWord(word) {
-  return ""; // replace this!
+  let wordStart = ""
+  let run = true
+
+  while (run === true) {
+
+    const element = word[0]
+    if (vowels.includes(element)) {
+      run = false
+    } else {
+      wordStart += word[0]
+      word = word.slice(1)
+    }
+    
+  } return word + "-" + wordStart + "ay"
 }
 
 // Write your unit tests here
+console.assert(encodeConsonantWord("latin") === "atin-lay" ,encodeConsonantWord("latin"))
+console.log(encodeConsonantWord("latin"))
+
+console.assert(encodeConsonantWord("cheers") === "eers-chay" ,encodeConsonantWord("cheers"))
+console.log(encodeConsonantWord("cheers"))
 
 /*  --------------------------------------------------------
     encodeWord()
